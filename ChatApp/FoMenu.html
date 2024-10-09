@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <style>
+        body{
+            background-color: rgb(224, 224, 224);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #keret{
+            border:  solid 2px rgb(205, 205, 205);
+            height: min-content;
+            width: 550px;
+            padding: 20px;
+            margin-top: 200px;
+            border-radius: 10px;
+            background-color: rgb(242, 242, 242);
+            box-shadow: 0px 0px 80px rgb(141, 141, 141);
+        }
+
+        #keret2{
+            border:  solid 2px rgb(205, 205, 205);
+            height: min-content;
+            width: 550px;
+            padding: 20px;
+            margin-top: 100px;
+            border-radius: 10px;
+            background-color: rgb(242, 242, 242);
+            box-shadow: 0px 0px 80px rgb(141, 141, 141);
+            display: none;
+        }
+
+        h2{
+            margin-bottom: 50px;
+            font-size: 50px;
+        }
+        #NEV{
+            margin-bottom: 0px;
+            height: 20px;
+            width: 250px;
+            
+        }
+
+        #NEV2{
+            margin-bottom: 0px;
+            height: 20px;
+            width: 250px;
+            
+        }
+
+        #hiba_nev{
+            margin-top: 0px;
+            font-size: 18px;
+            color: red;
+        }
+
+        #EMAIL{
+            margin-bottom: 0px;
+            height: 20px;
+            width: 250px;
+            
+        }
+
+        #EMAIL2{
+            margin-bottom: 0px;
+            height: 20px;
+            width: 250px;
+            
+        }
+
+        #hiba_email{
+            margin-top: 0px;
+            font-size: 18px;
+            color: red;
+        }
+
+
+        #JELSZO{
+            height: 20px;
+            width: 250px;
+            margin-left: 100px;
+        }
+
+        #JELSZO2{
+            height: 20px;
+            width: 250px;
+            margin-left: 100px;
+        }
+
+        #hiba_jelszo{
+            margin-top: 0px;
+            font-size: 18px;
+            color: red;
+        }
+
+        p{
+            font-size: 30px;
+        }
+        #csukva{
+            height: 100px;
+            margin-left: -50px;
+            margin-bottom: -40px;
+        }
+
+        #jelentkez{
+            margin-top: 50px;
+            width: 220px;
+            height: 55px;
+            border: 2px solid green;
+            background-color: rgb(141, 222, 139);
+            color: green;
+            font-weight: 900;
+            font-size: calc(15px);
+            border-radius: 10px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        #jelentkez:hover{
+            border: 2px solid rgb(3, 79, 3);
+            background-color: rgb(131, 235, 105);
+            color: rgb(3, 79, 3);
+        }
+
+        #regisztral{
+            margin: 30px;
+            width: 150px;
+            height: 45px;
+            border: 2px solid rgb(58, 58, 58);
+            background-color: rgb(195, 195, 195);
+            color: rgb(58, 58, 58);
+            font-weight: 900;
+            font-size: calc(15px);
+            border-radius: 10px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        #regisztral:hover{
+            border: 2px solid rgb(42, 42, 42);
+            background-color: rgb(225, 225, 225);
+            color: rgb(42, 42, 42);
+        }
+
+        h1{
+            margin-bottom: -80px;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Bereg Chat</h1>
+    <div id="keret">
+        <h2>Bejelentkezés</h2>
+        
+        <p>Felhasználónév/Email</p>
+        <input id="NEV" type="text" placeholder="" name="nev">
+
+        <p style=" margin-bottom: -20px;">Jelszó</p>    
+        <input id="JELSZO" type="password" placeholder="" name="jelszo"><img id="csukva" src="szemcsuk.png" style="cursor: pointer;" onclick="jelszo_lathato()">
+        <button type="button" id="jelentkez">Bejelentkezés</button>
+        <br>
+        <button type="button" id="regisztral" onclick="reg()">Regisztrálás</button>
+    </div>
+    <div id="keret2">
+        <h2>Regisztrálás</h2>
+        
+        <p>Felhasználónév</p>
+        <input id="NEV2" type="text" placeholder="" name="nev">
+        <p id="hiba_nev"></p>
+
+        
+        <p>Email</p>
+        <input id="EMAIL2" type="text" placeholder="" name="email">
+        <p id="hiba_email"></p>
+
+        <p style=" margin-bottom: -20px;">Jelszó</p>    
+        <input id="JELSZO2" type="password" placeholder="" name="jelszo"><img id="csukva" src="szemcsuk.png" style="cursor: pointer;" onclick="jelszo_lathato()">
+        <p id="hiba_jelszo"></p>
+
+        <button type="button" id="jelentkez" onclick="Check()">Regisztrálás</button>
+        <br>
+        <button type="button" id="regisztral" onclick="Jel()">Bejelentkezés</button>
+    </div>
+    </center>
+
+    <script src="jelszo_lathatosag.js"></script>
+    <script src="Reg_Bejelentkezes.js"></script>
+    <script src="Check_reg.js"></script>
+    
+</body>
+</html>
