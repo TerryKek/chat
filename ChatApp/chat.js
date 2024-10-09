@@ -1,3 +1,11 @@
+const textInput = document.getElementById('message');
+    textInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        Kuld();
+      }
+    });
+
+
 function Kuld(){
     var box = document.querySelectorAll('div[class$="chat-messages"]');
     var message = document.getElementById('message')
@@ -9,6 +17,5 @@ function Kuld(){
     item.appendChild(message_box);
     message.value = ""
     })
-
 
 }
