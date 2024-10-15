@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger Ismerősök</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9eff1;
+            padding: 0;
+            width: 60%;
+            margin: auto;
+        }
+        header {
+            background-color: #0078ff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+        .search-bar {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-input {
+            padding: 5px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+        }
+        .friend-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .friend-item {
+            background: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .friend-item:hover {
+            background-color: #f9f9f9;
+        }
+        .friend-avatar {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .friend-name {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+        #kep, #gemb {
+            height: 50px;
+            cursor: pointer;
+        }
+        #gemb {
+            width: 50px;
+            border-radius: 15px;
+            border: none;
+            background-color: white;
+            display: flex;
+            margin-right: 10px;
+        }
+        #egesz {
+            margin-left: auto;
+            display: flex;
+        }
+        #gemb2 {
+            width: 50px;
+            border-radius: 15px;
+            border: none;
+            background-color: white;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Emberek</h1>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Keresés..." 
+               oninput="filterFriends()">
+    </div>
+</header>
+
+<ul class="friend-list" id="friendList"></ul>
+
+<script>
+    const friends = [
+        { name: 'Robin', avatar: 'https://via.placeholder.com/50' },
+        { name: 'Batman', avatar: 'https://via.placeholder.com/50' },
+        { name: 'Batgirl', avatar: 'https://via.placeholder.com/50' },
+        // További ismerősök itt
+    ];
+
+    function renderFriends(friendArray) {
+        const friendList = document.getElementById('friendList');
+        friendList.innerHTML = ''; // Töröljük a meglévő elemeket
+
+        friendArray.forEach(friend => {
+            const item = document.createElement('li');
+            item.className = 'friend-item';
+            item.innerHTML = `
+                <img class="friend-avatar" src="${friend.avatar}" alt="${friend.name}">
+                <span class="friend-name">${friend.name}
+                    <div id="egesz">
+                        <button id="gemb" type="button" aria-label="Chat">
+                            <img id="kep" src="chat.png" alt="Chat Icon">
+                        </button>
+                        <button id="gemb2" type="button" aria-label="More Options">
+                            <img id="kep" src="pont.png" alt="More Options Icon">
+                        </button>
+                    </div>
+                </span>
+            `;
+            friendList.appendChild(item);
+        });
+    }
+
+    function filterFriends() {
+        const input = document.querySelector('.search-input').value.toLowerCase();
+        const filteredFriends = friends.filter(friend => friend.name.toLowerCase().includes(input));
+        renderFriends(filteredFriends);
+
+        // Ha az input üres, akkor jelenítsük meg az összes barátot
+        if (input === '') {
+            renderFriends(friends);
+        }
+    }
+
+    // Kezdetben az összes barátot megjelenítjük
+    renderFriends(friends);
+</script>
+
+</body>
+</html>
